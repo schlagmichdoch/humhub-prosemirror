@@ -37,7 +37,13 @@ module.exports = function(grunt) {
                                     'node_modules/react-dom/index.js': ['render']
                                 }
                             }),
-                        rollupPluginBuble(),
+                        rollupPluginBuble({
+                            objectAssign: "Object.assign",
+                            transforms: {
+                                modules: false,
+                                dangerousForOf: true,
+                            },
+                        }),
                         rollupPluginReplace({
                             'process.env.NODE_ENV': JSON.stringify( 'development' )
                         })

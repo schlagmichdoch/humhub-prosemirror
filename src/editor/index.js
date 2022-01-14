@@ -6,7 +6,7 @@
  */
 
 // Used as input to Rollup to generate the prosemirror js file
-
+import { applyDevTools } from 'prosemirror-dev-toolkit'
 import * as state from "prosemirror-state"
 import * as view from "prosemirror-view"
 import * as transform from "prosemirror-transform"
@@ -104,6 +104,8 @@ class MarkdownEditor {
         this.view =  new view.EditorView(this.$[0], {
             state: editorState
         });
+
+        // applyDevTools(this.view);
 
         // TODO: put into menu class...
         if(this.$.is('.focusMenu')) {
